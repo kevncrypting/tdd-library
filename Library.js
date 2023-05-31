@@ -29,6 +29,10 @@ class Library {
             selectedBook.possessedBy = patron;
         }
     }
+
+    // acceptBook() {
+    //     return
+    // }
 }
 
 module.exports = Library;

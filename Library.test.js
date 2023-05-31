@@ -29,12 +29,12 @@ describe("The Library", () => {
         library = new Library();
     });
 
-    // should be able to display its inventory of books
+    // should be able to display an accurate inventory of its books at any time
     test("contains books", () => {
         expect(library.displayInventory()).toEqual([]);
     });
 
-    // should be able to have books be added to its inventory.
+    // should be able to have books be added to its inventory
     test("should be able to have Books be added to its inventory", () => {
         library.addBook(newInventory);
 
@@ -45,7 +45,7 @@ describe("The Library", () => {
     test("should be able to issue books to patrons)", () => {
         library.addBook(newInventory);
         library.issueBook("Immune", "Kevin");
-
+        
         expect(library.inventory).toEqual([
             {
                 title: "Immune",
@@ -67,7 +67,15 @@ describe("The Library", () => {
             },
         ]);
     });
-});
+    
+    // should be able to accept returned books
+    test("should be able to accept returned books", () => {
+        library.addBook(newInventory);
+        
+        library.issueBook("Drive", "Kevin");
+        library.acceptBook('Immune', 'Kevin');
 
-// The Library should be able to accept books (accept returned books from patrons), as well.
-// The Library should be able to display an accurate inventory of its books at any time
+        expect(library.inventory).toEqual(newInventory);
+        
+    })
+});
