@@ -1,10 +1,14 @@
 class Library {
     constructor() {
-        this.contents = [];
+        this.inventory = [];
     }
 
-    displayContents() {
-        return this.contents
+    displayInventory() {
+        return this.inventory;
+    }
+
+    addBook(book) {
+        this.inventory.push(...book);
     }
 }
 
